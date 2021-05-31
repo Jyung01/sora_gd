@@ -12,21 +12,24 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-      if message.content.endswith("?"):
-            a = random.randrange(0, 5)
+      
+      if message.channel.id == 765828955113914380:
+            if message.content.endswith("?"):
+                  a = random.randrange(0, 5)
 
-            if a==1:
-                  a = "안 돼."
-            elif a==2:
-                  a = "그럼."
-            elif a==3:
-                  a = "가만히 있어."
-            elif a==4:
-                  a = "다시 한번 물어봐."
+                  if a==0:
+                        a = "언젠가는"
+                  
+                  elif a==1:
+                        a = "안 돼."
+                  elif a==2:
+                        a = "그럼."
+                  elif a==3:
+                        a = "가만히 있어."
+                  elif a==4:
+                        a = "다시 한번 물어봐."
 
-            await message.channel.send(a)
-      else:
-            message.channel.send("물음표 붙여.")
+                  await message.channel.send(a)
       
 
 bot.run(os.environ['token'])
